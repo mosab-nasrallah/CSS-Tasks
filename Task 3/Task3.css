@@ -1,0 +1,136 @@
+#Gradient-Background {
+  background: #e3e3ff;
+  height: 95vh;
+  font-family: sans-serif;
+}
+#GradientLogin {
+  margin-top: 10vh;
+  background-color: #8887c5;
+  padding: 20px;
+  width: 25vw;
+  border-radius: 25px;
+  box-shadow: 0px 0px 25px 8px #8887c5;
+}
+table {
+  margin: auto;
+}
+.full-name {
+  width: 103%;
+}
+.name {
+  border-radius: 8px;
+  height: 50px;
+  border: 1px solid lightgrey;
+  width: 100%;
+  max-width: 46%;
+}
+#GradientLogin span,
+#GradientLogin h1,
+#GradientLogin p {
+  color: white;
+  text-align: center;
+}
+
+#GradientLogin > form > input[type="email"],
+#GradientLogin > form > input[type="password"] {
+  margin: 20px 0;
+  width: 100%;
+  height: 50px;
+  border: 1px solid lightgrey;
+  display: block;
+  border-radius: 8px;
+}
+#GradientSubmit {
+  color: rgb(44, 44, 44);
+  background-color: rgb(111, 111, 111);
+  border: unset;
+  /* padding: 20px; */
+  font-size: 26px;
+  padding: 10px 0;
+  border-radius: 8px;
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 500px;
+}
+#GradientLogin form {
+  text-align: center;
+}
+div {
+  color: white;
+}
+.copyright {
+  font-size: small;
+}
+/* //////////////////////////////////// */
+
+section {
+  margin-bottom: 100px;
+}
+.member-table {
+  margin-left: calc(100% - 270px);
+}
+
+/* //////////////////////////////////// */
+#laptop {
+  float: left;
+  background-color: #f2f2f2;
+  margin-top: 12%;
+  margin-left: 5%;
+  border-radius: 9000px;
+  padding: 20px;
+}
+
+#forgot {
+  color: black;
+}
+#member-login {
+  background: linear-gradient(70deg, #8300cd 50%, #b900c4 100%);
+  height: 95vh;
+  padding: 50px;
+  font-family: sans-serif;
+}
+#memeber-card p,
+#memeber-card h3 {
+  /* color: white; */
+  text-align: center;
+  margin: 35px 0;
+}
+#memeber-card {
+  border-radius: 30px;
+  padding: 70px 20px;
+  margin-top: 10vh;
+  margin-left: 20vw;
+  width: 40vw;
+  background-color: white;
+}
+
+p > a {
+  color: #1fcc44;
+  text-decoration: none;
+}
+.create {
+  color: #1fcc44;
+}
+#MemberSubmit {
+  background-color: #1fcc44;
+  /* width: 30%; */
+  width: 110%;
+  height: 50px;
+  display: block;
+  border-radius: 900px;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+#memeber-card input[type="email"],
+#memeber-card input[type="password"] {
+  width: 100%;
+  height: 50px;
+  display: block;
+  background-color: #e5e5e5;
+  border-radius: 900px;
+  border: none;
+  margin: 30px 0 20px 0;
+  padding-left: 20px;
+}

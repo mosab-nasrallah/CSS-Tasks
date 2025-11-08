@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+    <link rel="stylesheet" href="Task2.css" />
+  </head>
+  <body>
+    <!-- Because we are not allowed to use flexbox or grid, I had to to this to center the login card -->
+   
+    <section id="LinkedInLogin">
+      <img
+        id="LinkedInlogo"
+        src="imgs/proxy-image.png"
+        alt="LinkedIn logo"
+        width="150"
+      />
+      <table>
+        <tr>
+          <td>
+            <main id="LinkedIn">
+              <form>
+                <h1>Sign in</h1>
+                <p>Stay updated on your professional world</p>
+                <input type="text" placeholder="Email or Phone" />
+                <br />
+                <input type="password" placeholder="Password" />
+                <br />
+                <a href="">Forgot password?</a>
+                <br />
+                <input id="LinkedInSubmit" type="submit" value="Sign in" />
+              </form>
+              <fieldset>
+                <legend>or</legend>
+              </fieldset>
+
+              <button>
+                <img
+                  src="imgs/apple-logo-png-index-content-uploads-10.png"
+                  alt="Apple logo"
+                  width="20"
+                />
+
+                Sign in with Apple
+              </button>
+            </main>
+            <p id="Singup">New to linkedIn? <span id="Join">Join now</span></p>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+
+    <section id="Scratch">
+      <header>
+        <ul>
+          <li id="ScratchLogo">Scratch</li>
+          <li id="Login" class="right">Login</li>
+          <li id="Signup" class="right">Signup</li>
+        </ul>
+      </header>
+      <table>
+        <tr>
+          <td>
+            <main id="scratchLogin">
+              <form>
+                <label for="ScratchEmail">Email</label><br />
+                <input type="email" id="ScratchEmail" />
+                <br />
+                <label for="ScratchPassword">Password</label><br />
+                <input type="password" id="ScratchPassword" />
+
+                <br />
+                <input id="ScratchSubmit" type="submit" value="Login" />
+              </form>
+            </main>
+          </td>
+        </tr>
+      </table>
+    </section>
+    
+
+    <section id="Gradient-Background">
+      <table>
+        <tr>
+          <td>
+            <main id="GradientLogin">
+              <h1>Login</h1>
+              <form>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <div>
+                  <input type="checkbox" id="Show" />
+                  <label id="ShowPass" for="Show">Show Password</label><br />
+                </div>
+                <input id="GradientSubmit" type="submit" value="SING IN" />
+              </form>
+              <p>Forgot <span>Username</span> / <span>Password?</span></p>
+              <p>Don't have an account? Sing up</p>
+            </main>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>
