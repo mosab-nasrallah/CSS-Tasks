@@ -305,11 +305,11 @@ only the inputs with `[type="text"]`, attribue: `type` and value: `text` gets st
 
 ---
 
-| prefix | Syntax                   | Applies to             | specificity |
-| ------ | ------------------------ | ---------------------- | ----------- |
-| `:`    | `Element:State{` ~~~ `}` | elements in a specific | 0, 0, 1, 0  |
+| prefix    | Syntax                    | Applies to             | specificity |
+| --------- | ------------------------- | ---------------------- | ----------- |
+| `:Pseudo` | `Element:Pseudo{` ~~~ `}` | elements in a specific | 0, 0, 1, 0  |
 
-A pseudo-class selector applies styles to elements in certain states using the (`:`) prefix  
+A pseudo-class selector apply styles to elements in certain states, after using the (`:`) followed by the state  
 Example:
 
 ```html
@@ -326,35 +326,157 @@ Example:
 </body>
 ```
 
-This `.highlight` will select all elements with class `highlight` apply the style to them
+When mouse cursor `hover` over this button , the color of it will become yellow
+Other the pseudo-classes include:
+
+### 💻Interactive/User Action Pseudo-Classes
+
+| Pseudo-Class     | Description                                                                   | Example                                           |
+| ---------------- | ----------------------------------------------------------------------------- | ------------------------------------------------- |
+| `:hover`         | Applies when the user's mouse pointer is over an element.                     | `a:hover { color: red; }`                         |
+| `:active`        | Applies while an element is being activated (e.g., pressed down).             | `button:active { background: darkblue; }`         |
+| `:focus`         | Applies when an element has received input focus.                             | `input:focus { border: 2px solid blue; }`         |
+| `:focus-visible` | Applies when the browser shows a visible focus indicator (for accessibility). | `a:focus-visible { outline: 3px dashed orange; }` |
+| `:focus-within`  | Applies to an element when it or any of its descendants has focus.            | `form:focus-within { border: 1px solid green; }`  |
+
+### 🔗 Link & History Pseudo-Classes
+
+| Pseudo-Class | Description                                         | Example                        |
+| ------------ | --------------------------------------------------- | ------------------------------ |
+| `:link`      | Applies to unvisited links.                         | `a:link { color: blue; }`      |
+| `:visited`   | Applies to links that the user has already visited. | `a:visited { color: purple; }` |
+
+### 🏗️ Structural Pseudo-Classes
+
+| Pseudo-Class     | Description                                                                  | Example                                        |
+| ---------------- | ---------------------------------------------------------------------------- | ---------------------------------------------- |
+| `:first-child`   | Matches an element that is the first child of its parent.                    | `p:first-child { font-weight: bold; }`         |
+| `:nth-child(n)`  | Matches the n-th child of its parent (n can be _odd_, _even_, or a formula). | `li:nth-child(odd) { background: lightgray; }` |
+| `:last-child`    | Matches an element that is the last child of its parent.                     | `li:last-child { border-bottom: none; }`       |
+| `:only-child`    | Matches an element that is the only child of its parent.                     | `div > img:only-child { margin: auto; } `      |
+| `:first-of-type` | Matches the first element of its type among siblings.                        | `div p:first-of-type { color: red; }`          |
+| `:empty`         | Matches an element that has no children (including text).                    | `span:empty { display: none; }`                |
+
+### 🎛️ Form & UI State Pseudo-Classes
+
+| Pseudo-Class | Description                                                   | Example                                          |
+| ------------ | ------------------------------------------------------------- | ------------------------------------------------ |
+| `:checked`   | Matches a selected checkbox or radio button.                  | `input:checked + label { font-style: italic; }`  |
+| `:disabled`  | Matches form elements that are currently disabled.            | `input:disabled { opacity: 0.5; }`               |
+| `:required`  | Matches form input fields that have the `required` attribute. | `input:required { border-left: 5px solid red; }` |
+| `:valid`     | Matches form elements whose content validates successfully.   | `input:valid { border-color: green; } `          |
+| `:invalid`   | Matches form elements whose content fails to validate.        | `input:invalid { border-color: red; }`           |
+| `:read-only` | Matches an element the user cannot edit.                      | `input:read-only { background: #eee; }`          |
+
+### ➕ Advanced & Functional Pseudo-Classes
+
+| Pseudo-Class         | Description                                                                   | Example                                   |
+| -------------------- | ----------------------------------------------------------------------------- | ----------------------------------------- |
+| `:not(selector)`     | Matches an element that does not match the given selector.                    | `p:not(.intro) { margin-top: 20px; }`     |
+| `:root`              | Matches the root element of the document (`<html>`).                          | `:root { font-size: 16px; }`              |
+| `:target`            | Matches an element targeted by the URL's hash (`#id`).                        | `section:target { padding: 10px; }`       |
+| `:has(selector)`     | The Parent Selector. Matches an element only if it contains a matching child. | `a:has(img) { border: 1px solid #ccc; } ` |
+| `:is(selector-list)` | Matches an element that matches any selector in the provided list.            | `h1:is(.title, #main) { color: navy; }`   |
 
 ### 11. Pseudo-element Selector
 
 ---
 
-| prefix | Syntax                 | Applies to                        | specificity |
-| ------ | ---------------------- | --------------------------------- | ----------- |
-| `.`    | `.class-name{` ~~~ `}` | elements with the same class name | 0, 0, 1, 0  |
+| prefix | Syntax                             | Applies to                            | specificity |
+| ------ | ---------------------------------- | ------------------------------------- | ----------- |
+| `::`   | `Element::Pseudo-element{` ~~~ `}` | elements with Pseudo-element Selector | 0, 0, 0, 1  |
 
-The class selector matches elements with a given class attribute. It uses a dot ( `.` ) prefix followed by the class name. Multiple elements can have the same class
-Example
+A pseudo-element selector starts with two colons (::) and selects a part of an element, or inserts something into it
 
 ```html
 <head>
   <style>
-    .highlight {
-      font-size: 5rem;
+    p::before {
+      content: "Note: ";
+      color: red;
     }
   </style>
 </head>
 
 <body>
-  <p class="highlight">Blue and centered paragraph.</p>
-  <p>This paragraph is unchanged (no class).</p>
+  <p>This text will have 'Note:' before it.</p>
+  <p>Another paragraph prefixed with 'Note:'.</p>
   <div class="highlight">Blue and centered div.</div>
 </body>
 ```
 
-This `.highlight` will select all elements with class `highlight` apply the style to them
+`p::before` allows you to insert content before a `<p>` element’s text. so, each `<p>` is prefixed with “Note:” in red  
+here are some Pseudo-element Selector:
+
+### ✨ Core Pseudo-element Selectors
+
+| Pseudo-Class     | Description                                                                                                                    | Example                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| `::before`       | Inserts generated content before the content of the selected element. The `content` CSS property is required for this to work. | `p::before { content: "Note: "; }`     |
+| `::after`        | Inserts generated content after the content of the selected element. Also requires the `content` property.                     | `a::after { content: " 🔗"; }`         |
+| `::first-letter` | Selects and styles the first letter of the first line of a block-level element.                                                | `p::first-letter { font-size: 2em; }`  |
+| `::first-line`   | Selects and styles the first line of a block-level element. The length of the first line depends on the width of the element.. | `p::first-line { font-weight: bold; }` |
+
+### 🔍 Other Pseudo-element Selectors
+
+| Pseudo-Class    | Description                                                                                                  | Example                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| `::marker`      | Selects the marker box of a list item, typically the bullets (`•`) or numbers (`1.`).                        | `li::marker { color: #f00; }`                             |
+| `::selection`   | Selects and styles the portion of an element that a user has highlighted (selected) with their mouse.        | `::selection { background: yellow; }`                     |
+| `::placeholder` | Selects and styles the placeholder text inside form inputs (like `<input type="text" placeholder="...">`)    | `input::placeholder { color: grey; }`                     |
+| `::backdrop`    | Selects the element behind a ذ or element in full-screen mode, allowing you to style the background overlay. | `dialog::backdrop { background-color: rgba(0,0,0,0.5); }` |
 
 ## CSS Cascade: Priority and Specificity
+
+The browser follows a strict set of rules, known as The Cascade, to determine which style to apply when multiple rules target the same element and conflict over the same property (e.g., two rules setting the `color`). The priority is decided in three main steps:
+
+### 1. The `!important` Flag (Highest Power)
+
+When a style declaration includes the `!important` keyword (e.g., `color: red !important;`), it gains the highest priority, overriding all other rules unless another conflicting rule also uses `!important`
+
+### 2. Specificity (The Tie-Breaker)
+
+If no !important flag is used, the browser calculates the specificity score of each selector. The rule with the highest score wins, **regardless of its placement in the stylesheet**.
+
+_Example: An ID selector will always override a Class selector, even if the class selector appears later
+in the file._
+
+```html
+<head>
+  <style>
+    #blue {
+      color: blue;
+    }
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <p id="blue" class="green">Blue paragraph.</p>
+</body>
+```
+
+#### _In this example, the text color will be set to `#blue` even though the `.green` came after, but the specificity is higher for the `ID`_
+
+• IDs (`#id`) contribute the most to the score.  
+• Classes, Attributes, and
+Pseudo-classes (`.class`, `[type]`, `:hover`) contribute less.  
+• Elements and
+Pseudo-elements (`p`, `::after`) contribute the least.
+
+| Category                | Example                      | specificity  |
+| ----------------------- | ---------------------------- | ------------ |
+| Inline style attribute  | `<div style="color: blue;">` | (1, 0, 0, 0) |
+| ID Selector             | `#my-id`                     | (0, 1, 0, 0) |
+| Class Selector          | `.my-class`                  | (0, 0, 1, 0) |
+| Attribute Selector      | `[type="submit"]`            | (0, 0, 1, 0) |
+| Pseudo-class Selector   | `:hover`, `:nth-child(n)`    | (0, 0, 1, 0) |
+| Element Selector        | `div`, `p`, `h1`             | (0, 0, 0, 1) |
+| Pseudo-element Selector | `::before`, `::after`        | (0, 0, 0, 1) |
+| Universal Selector      | `*`                          | (0, 0, 0, 0) |
+
+### 3. Source Order (The Final Decider) If two conflicting
+
+selectors have the exact same specificity score (e.g., two different class selectors: `.one` and `.two`), the browser applies the rule that was defined last in the stylesheet.
